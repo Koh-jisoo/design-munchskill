@@ -19,12 +19,12 @@ const IconButton = ({
                 <MainTitle>Button</MainTitle>
             </Section>
             <Section section={2}>
-                <Article article={1}>
+            <Article>
                     <Flex>
                         <div>
                             <SubTitle>LABEL</SubTitle>
                             <Description>
-                                <code>Button</code>의 들어갈 내용을 지정할 수 있습니다.
+                                <code className="caution">해당 아이콘 버튼은 label을 사용할 수 없습니다.</code>
                             </Description>
                         </div>
                         <div>
@@ -49,7 +49,71 @@ const IconButton = ({
                         </div>
                     </Flex>
                 </Article>
-                <Article article={6}>
+                <Article>
+                    <Flex>
+                        <div>
+                            <SubTitle>WIDTH</SubTitle>
+                            <Description>
+                                <code className="caution">아이콘 버튼은 width 값을 지정할 수 없습니다.</code>
+                            </Description>
+                        </div>
+                        <div>
+                            <SubTitle>DESABLED</SubTitle>
+                            <Description>
+                                Boolean 값으로 <code>Button</code>의 활성화 여부를 선택할 수 있습니다.
+                            </Description>
+                        </div>
+                    </Flex>
+                </Article>
+                <Article>
+                    <Flex>
+                        <div>
+                            <SubTitle>COLOR</SubTitle>
+                            <Description>
+                                <code>Button</code>의 배경 색상을 선택할 수 있습니다.
+                            </Description>
+                        </div>
+                        <div>
+                            <SubTitle>RADIUS</SubTitle>
+                            <Description>
+                                <code>Button</code>의 <code>border-radius</code>값을 지정할 수 있습니다.
+                            </Description>
+                        </div>
+                    </Flex>
+                </Article>
+                <Article>
+                    <Flex>
+                        <div>
+                            <SubTitle>SIZE</SubTitle>
+                            <Description>
+                                <code>Button</code>의 크기를 선택할 수 있습니다. (small, medium 중 택 1)
+                            </Description>
+                        </div>
+                        <div>
+                            <SubTitle>BORDER</SubTitle>
+                            <Description>
+                                <code>Button</code>의 border값의 두께, 스타일, 컬러를 지정할 수 있습니다. <br /> (예시: <code>1px solid #333333</code>)
+                            </Description>
+                        </div>
+                    </Flex>
+                </Article>
+                <Article>
+                    <Flex>
+                        <div>
+                            <SubTitle>FRONT ICON</SubTitle>
+                            <Description>
+                                <code>Button</code>의 앞쪽에 아이콘을 넣을 수 있습니다.
+                            </Description>
+                        </div>
+                        <div>
+                            <SubTitle>BACK ICON</SubTitle>
+                            <Description>
+                                <code className="caution">아이콘 버튼은 front icon만 사용하실 수 있습니다.</code>
+                            </Description>
+                        </div>
+                    </Flex>
+                </Article>
+                <Article>
                     <SubTitle>Props</SubTitle>
                     <CodeBox>
                         <code>
@@ -105,6 +169,11 @@ const Container = styled.main`
         font-size: 85%;
         background-color: rgba(27,31,35,.05);
         border-radius: 3px;
+
+        &.caution {
+            background-color: #FDEAE9;
+            color: #999999;
+        }
     }
 `;
 
@@ -128,15 +197,7 @@ const Section = styled.section`
 
 const Article = styled.article`
     padding-bottom: 24px;
-
-    ${(props) => {
-        switch(props.article) {
-            case 1:
-                return`
-                    padding-top: 24px;
-                `;
-        }
-    }}
+    padding-top: 24px;
 `;
 
 const MainTitle = styled.h2`
@@ -201,7 +262,7 @@ const Flex = styled.div`
 const StyledButton = styled.button`
     text-align: center;
     background: #2e3338;
-    border-radius: ${(props) => props.radius !== undefined ? `${props.radius}%` : "50%"};
+    border-radius: ${(props) => props.radius !== undefined ? `${props.radius}px` : "32px"};
     cursor: pointer;
     border: none;
 

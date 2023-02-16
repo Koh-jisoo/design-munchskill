@@ -89,5 +89,5 @@ export const Icon = IconTemplate.bind({});
 Icon.args = {
 	size: 'small',
 	theme: 'grey',
-	radius: 100,
+	radius: 32,
 }

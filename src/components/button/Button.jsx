@@ -22,7 +22,7 @@ const Button = ({
                 <MainTitle>Button</MainTitle>
             </Section>
             <Section section={2}>
-                <Article article={1}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>LABEL</SubTitle>
@@ -52,7 +52,7 @@ const Button = ({
                         </div>
                     </Flex>
                 </Article>
-                <Article article={2}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>WIDTH</SubTitle>
@@ -68,7 +68,7 @@ const Button = ({
                         </div>
                     </Flex>
                 </Article>
-                <Article article={3}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>COLOR</SubTitle>
@@ -84,7 +84,7 @@ const Button = ({
                         </div>
                     </Flex>
                 </Article>
-                <Article article={4}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>SIZE</SubTitle>
@@ -100,7 +100,7 @@ const Button = ({
                         </div>
                     </Flex>
                 </Article>
-                <Article article={5}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>FRONT ICON</SubTitle>
@@ -116,7 +116,7 @@ const Button = ({
                         </div>
                     </Flex>
                 </Article>
-                <Article article={6}>
+                <Article>
                     <SubTitle>Props</SubTitle>
                     <CodeBox>
                         <code>
@@ -200,16 +200,8 @@ const Section = styled.section`
 `;
 
 const Article = styled.article`
+    padding-top: 24px;
     padding-bottom: 24px;
-
-    ${(props) => {
-        switch(props.article) {
-            case 1:
-                return`
-                    padding-top: 24px;
-                `;
-        }
-    }}
 `;
 
 const MainTitle = styled.h2`
