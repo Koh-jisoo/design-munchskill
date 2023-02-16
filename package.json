@@ -22,7 +22,8 @@
     "build-and-serve": "npm run build && npm run serve",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d storybook-static",
+    "chromatic": "npx chromatic --project-token=cb16b0175738"
   },
   "eslintConfig": {
     "extends": [
@@ -84,6 +85,7 @@
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "chromatic": "^6.17.0",
     "classnames": "^2.3.2",
     "eslint-plugin-jsx-a11y": "^6.7.1",
     "gh-pages": "^5.0.0",
@@ -91,5 +93,7 @@
     "sass": "^1.58.1",
     "serve": "^11.3.2",
     "webpack": "^5.75.0"
-  }
+  },
+  "readme": "ERROR: No README data found!",
+  "_id": "storybook@0.1.0"
 }

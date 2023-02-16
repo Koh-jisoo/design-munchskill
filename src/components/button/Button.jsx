@@ -367,6 +367,7 @@ const StyledButton = styled.button`
                     &:disabled {
                         background: #ffffff;
                         color: #d6dbe0;
+                        border-color: #d6dbe0;
                     }
                 `;
             case 'borderBlue':
@@ -387,6 +388,7 @@ const StyledButton = styled.button`
                     &:disabled {
                         background: #ffffff;
                         color: #a0cbf3;
+                        border-color: #a0cbf3;
                     }
                 `;
         }
