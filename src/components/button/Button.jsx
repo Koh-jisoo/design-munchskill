@@ -23,6 +23,24 @@ const Button = ({
             </Section>
             <Section section={2}>
                 <Article>
+                    <StyledButton
+                        theme={theme} 
+                        size={size} 
+                        width={width}
+                        disabled={Boolean(isDisabled)}
+                        color={color}
+                        onClick={onClick}
+                        radius={radius}
+                        border={border}
+                    >
+                        {frontIcon !== undefined ? <img src={`${frontIcon}`} alt={""} /> : <></>}
+                        {label !== null ? <span>{label}</span> : <></>}
+                        {backIcon !== undefined ? <img src={`${backIcon}`} alt={""} /> : <></>}
+                    </StyledButton>
+                </Article>
+            </Section>
+            <Section section={3}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>LABEL</SubTitle>
@@ -133,24 +151,6 @@ const Button = ({
                             backIcon: PropTypes.string,
                         </code>
                     </CodeBox>
-                </Article>
-            </Section>
-            <Section section={3}>
-                <Article article={3}>
-                    <StyledButton
-                        theme={theme} 
-                        size={size} 
-                        width={width}
-                        disabled={Boolean(isDisabled)}
-                        color={color}
-                        onClick={onClick}
-                        radius={radius}
-                        border={border}
-                    >
-                        {frontIcon !== undefined ? <img src={`${frontIcon}`} alt={""} /> : <></>}
-                        {label !== null ? <span>{label}</span> : <></>}
-                        {backIcon !== undefined ? <img src={`${backIcon}`} alt={""} /> : <></>}
-                    </StyledButton>
                 </Article>
             </Section>
         </Container>

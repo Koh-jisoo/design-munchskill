@@ -16,10 +16,25 @@ const IconButton = ({
     return (
         <Container>
             <Section section={1}>
-                <MainTitle>Button</MainTitle>
+                <MainTitle>Icon Button</MainTitle>
             </Section>
             <Section section={2}>
-            <Article>
+                <Article>
+                    <StyledButton
+                        theme={theme} 
+                        size={size}
+                        disabled={Boolean(isDisabled)}
+                        color={color}
+                        onClick={onClick}
+                        radius={radius}
+                        border={border}
+                    >
+                        {frontIcon !== undefined ? <img src={`${frontIcon}`} alt={""} /> : <></>}
+                    </StyledButton>
+                </Article>
+            </Section>
+            <Section section={3}>
+                <Article>
                     <Flex>
                         <div>
                             <SubTitle>LABEL</SubTitle>
@@ -129,21 +144,7 @@ const IconButton = ({
                     </CodeBox>
                 </Article>
             </Section>
-            <Section section={3}>
-                <Article article={3}>
-                    <StyledButton
-                        theme={theme} 
-                        size={size}
-                        disabled={Boolean(isDisabled)}
-                        color={color}
-                        onClick={onClick}
-                        radius={radius}
-                        border={border}
-                    >
-                        {frontIcon !== undefined ? <img src={`${frontIcon}`} alt={""} /> : <></>}
-                    </StyledButton>
-                </Article>
-            </Section>
+
         </Container>
     )
 };
