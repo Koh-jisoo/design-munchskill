@@ -4,7 +4,7 @@ import { PropTypes } from "prop-types";
 
 const Button = ({ 
     label, 
-    theme, 
+    buttonTheme, 
     size, 
     isDisabled, 
     width, 
@@ -13,7 +13,7 @@ const Button = ({
     backIcon, 
     onClick,
     radius,
-    border
+    border,
 }) => {
 
     return (
@@ -24,7 +24,7 @@ const Button = ({
             <Section section={2}>
                 <Article>
                     <StyledButton
-                        theme={theme} 
+                        buttonTheme={buttonTheme} 
                         size={size} 
                         width={width}
                         disabled={Boolean(isDisabled)}
@@ -139,7 +139,7 @@ const Button = ({
                     <CodeBox>
                         <code>
                             label: PropTypes.string, <br />
-                            theme: PropTypes.string, <br />
+                            buttonTheme: PropTypes.string, <br />
                             size: PropTypes.oneOf(['small', 'medium']), <br />
                             width: PropTypes.string, <br />
                             isDisabled: PropTypes.bool, <br />
@@ -157,11 +157,6 @@ const Button = ({
     )
 };
 
-
-Button.defaultProps = {
-    theme: 'grey',
-    size: 'small'
-};
 
 const Container = styled.main`
     width: 100%;
@@ -308,79 +303,79 @@ const StyledButton = styled.button`
                 `;
         }
     }}
-    
+
     ${(props) => {
-        switch(props.theme) {
+        switch(props.buttonTheme) {
             case 'grey': 
                 return `
-                    background: ${props.color !== undefined ? props.color : '#2e3338'};
+                    background: ${props.color !== undefined ? props.color : props.theme.color.$grey900};
                     &:hover,
                     &:focus {
-                        background: #000000;
+                        background: ${props.theme.color.$black};
                     }
                     &:active {
-                        background: #000000;
+                        background: ${props.theme.color.$black};
                     }
                     &:disabled {
-                        background: #b5bdc5;
+                        background: ${props.theme.color.$grey400};
                     }  
                 `;
             case 'blue':
                 return `
-                    background: ${props.color !== undefined ? props.color : '#3294ee'};
+                    background: ${props.color !== undefined ? props.color : props.theme.color.$blue500};
                     &:hover {
-                        background: #096dd9;
+                        background: ${props.theme.color.$blue600};
                     }
                     &:focus {
-                        background: #0050b3;
+                        background: ${props.theme.color.$blue700};
                     }
                     &:active {
-                        background: #0050b3;
+                        background: ${props.theme.color.$blue700};
                     }
                     &:disabled {
-                        background: #a0cbf3;
+                        background: ${props.theme.color.$blue200};
                     }
                 `;
             case 'borderGrey':
                 return `
-                    background: ${props.color !== undefined ? props.color : '#ffffff'};
-                    border: ${props.border !== undefined ? props.border : '1px solid #d6dbe0'};
-                    color: #2e3338;
+                    background: ${props.color !== undefined ? props.color : props.theme.color.$white};
+                    border: ${props.border !== undefined ? props.border : `1px solid ${props.theme.color.$grey300}`};
+                    color: ${props.theme.color.$grey900};
 
                     &:hover {
-                        background: #f1f3f5;
+                        background: ${props.theme.color.$grey100};
                     }
                     &:focus {
-                        background: #e2e6e9;
+                        background: ${props.theme.color.$grey200};
                     }
                     &:active {
-                        background: #e2e6e9;
+                        background: ${props.theme.color.$grey200};
                     }
                     &:disabled {
-                        background: #ffffff;
-                        color: #d6dbe0;
-                        border-color: #d6dbe0;
+                        background: ${props.theme.color.$white};
+                        color: ${props.theme.color.$grey300};
+                        border-color: ${props.theme.color.$grey300};
                     }
                 `;
             case 'borderBlue':
                 return `
                     background: ${props.color !== undefined ? props.color : '#ffffff'};
                     border: ${props.border !== undefined ? props.border : '1px solid #3294ee'};
-                    color: #3294ee;
+                    color: ${props.theme.color.$blue500};
 
                     &:hover {
-                        background: #e4f0fb;
+                        background: ${props.theme.color.$blue50};
                     }
                     &:focus {
-                        background: #c2def6;
+                        background: ${props.theme.color.$blue100};
                     }
                     &:active {
-                        background: #c2def6;
+                        background: ${props.theme.color.$blue100};
                     }
                     &:disabled {
-                        background: #ffffff;
-                        color: #a0cbf3;
-                        border-color: #a0cbf3;
+                        background: ${props.theme.color.$white};
+                        color: ${props.theme.color.$blue200};
+                        border-color: ${props.theme.color.$blue200};
                     }
                 `;
         }
@@ -390,7 +385,7 @@ const StyledButton = styled.button`
 
 Button.propTypes = {
     label: PropTypes.string,
-    theme: PropTypes.string,
+    buttonTheme: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium']),
     width: PropTypes.string,
     isDisabled: PropTypes.bool,
@@ -404,7 +399,7 @@ Button.propTypes = {
   
 Button.defaultProps = {
     label: null,
-    theme: null,
+    buttonTheme: null,
     size: null,
     width: null,
     isDisabled: null,

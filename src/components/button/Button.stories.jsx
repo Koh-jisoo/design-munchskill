@@ -1,6 +1,7 @@
 import React from 'react';
 import Button from './Button';
 import IconButton from './IconButton';
+import styled from 'styled-components'
 import { action } from '@storybook/addon-actions';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
@@ -14,7 +15,7 @@ export default {
 				options: 'BUTTON'
 			}
 		},
-		theme: {
+		buttonTheme: {
 			control: {
 				type: 'radio',
 				options: [
@@ -74,12 +75,11 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <Button {...args} onClick={action('onClick')} />;
 
-// export const Primary = (args) => <Button {...args} onClick={action('onClick')}></Button>;
 export const Primary = Template.bind({});
 Primary.args = {
 	label: 'Button',
 	size: 'small',
-	theme: 'grey',
+	buttonTheme: 'grey',
 	width: 'auto',
 	radius: 4,
 };
@@ -88,6 +88,6 @@ const IconTemplate = (args) => <IconButton {...args} onClick={action('onClick')}
 export const Icon = IconTemplate.bind({});
 Icon.args = {
 	size: 'small',
-	theme: 'grey',
+	buttonTheme: 'grey',
 	radius: 32,
 }

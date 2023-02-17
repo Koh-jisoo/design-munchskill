@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { PropTypes } from "prop-types";
 
 const IconButton = ({
-    theme, 
+    buttonTheme, 
     size, 
     isDisabled,
     color, 
@@ -21,7 +21,7 @@ const IconButton = ({
             <Section section={2}>
                 <Article>
                     <StyledButton
-                        theme={theme} 
+                        buttonTheme={buttonTheme} 
                         size={size}
                         disabled={Boolean(isDisabled)}
                         color={color}
@@ -132,7 +132,7 @@ const IconButton = ({
                     <SubTitle>Props</SubTitle>
                     <CodeBox>
                         <code>
-                            theme: PropTypes.string, <br />
+                            buttonTheme: PropTypes.string, <br />
                             size: PropTypes.oneOf(['small', 'medium']), <br />
                             isDisabled: PropTypes.bool, <br />
                             color: PropTypes.string, <br />
@@ -149,11 +149,6 @@ const IconButton = ({
     )
 };
 
-
-IconButton.defaultProps = {
-    theme: 'grey',
-    size: 'small'
-};
 
 const Container = styled.main`
     width: 100%;
@@ -298,7 +293,7 @@ const StyledButton = styled.button`
     }}
     
     ${(props) => {
-        switch(props.theme) {
+        switch(props.buttonTheme) {
             case 'grey': 
                 return `
                     background: ${props.color !== undefined ? props.color : '#2e3338'};
@@ -375,7 +370,7 @@ const StyledButton = styled.button`
 `;
 
 IconButton.propTypes = {
-    theme: PropTypes.string,
+    buttonTheme: PropTypes.string,
     size: PropTypes.oneOf(['small', 'medium']),
     isDisabled: PropTypes.bool,
     color: PropTypes.string,
@@ -386,7 +381,7 @@ IconButton.propTypes = {
 };
   
 IconButton.defaultProps = {
-    theme: null,
+    buttonTheme: null,
     size: null,
     isDisabled: null,
     onClick: undefined,
