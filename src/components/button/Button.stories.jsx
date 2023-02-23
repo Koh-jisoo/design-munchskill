@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from './Button';
+import ButtonD from './ButtonD';
 import IconButton from './IconButton';
 import styled from 'styled-components'
 import { action } from '@storybook/addon-actions';
@@ -83,6 +84,18 @@ Primary.args = {
 	width: 'auto',
 	radius: 4,
 };
+
+const TemplateD = (args) => <ButtonD {...args} onClick={action('onClick')} />;
+
+export const PrimaryD = TemplateD.bind({});
+Primary.args = {
+	label: 'Button',
+	size: 'small',
+	buttonTheme: 'grey',
+	width: 'auto',
+	radius: 4,
+};
+
 
 const IconTemplate = (args) => <IconButton {...args} onClick={action('onClick')} />;
 export const Icon = IconTemplate.bind({});
